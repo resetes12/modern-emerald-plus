@@ -43,19 +43,19 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
+#define FLAG_FOLLOWERS_ENABLED          0x20 //Controls followers
+#define FLAG_NO_ENCOUNTER_DEBUG         0x21 // Debug: No wild encounter
+#define FLAG_NO_TRAINER_SEE_DEBUG       0x22 // Debug: No trainer see
+#define FLAG_NO_COLLISION_DEBUG         0x23 // Debug: No collision
+#define FLAG_POKE_RIDER                 0x24 // Use town map or pokenav to fly, using R
+#define FLAG_PAUSE_TIME_DEBUG           0x25 // Debug: Pause RTC
+#define FLAG_INVERSE_BATTLE             0x26 // Force inverse battle
+#define FLAG_FORCE_DOUBLE_WILD_BATTLE   0x27 // Force double wild battle
+#define FLAG_SMART_WILD_AI              0x28 // Force smart wild AI
+#define FLAG_NO_BAG_USE                 0x29 // Force no bag usage
+#define FLAG_NO_CATCHING                0x2A // Catching isn't allowed
+#define FLAG_NO_RUNNING                 0x2B // Running not allowed
+#define FLAG_AI_VS_AI_BATTLE            0x2C // ai vs ai battle?
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
