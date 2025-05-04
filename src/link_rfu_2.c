@@ -77,8 +77,8 @@ struct RfuDebug
     u8 unused4[88];
 };
 
-COMMON_DATA u32 gRfuAPIBuffer[RFU_API_BUFF_SIZE_RAM / 4] = {0};
-COMMON_DATA struct RfuManager gRfu = {0};
+EWRAM_DATA u32 gRfuAPIBuffer[RFU_API_BUFF_SIZE_RAM / 4] = {}; //stays as EWRAM_DATA, but could be changed to COMMON_DATA
+EWRAM_DATA struct RfuManager gRfu = {}; //stays as EWRAM_DATA, but could be changed to COMMON_DATA
 
 static u8 sHeldKeyCount;
 static u8 sResendBlock8[CMD_LENGTH * 2];
