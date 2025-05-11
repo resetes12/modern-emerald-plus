@@ -979,9 +979,9 @@ const u8 gText_CommErrorEllipsis[] = _("Communication error…");
 const u8 gText_MoveCloserToLinkPartner[] = _("Move closer to your link partner(s).\nAvoid obstacles between partners.");
 const u8 gText_ABtnRegistrationCounter[] = _("A Button: Registration Counter");
 const u8 gText_ABtnTitleScreen[] = _("A Button: Title Screen");
-const u8 gText_Option[] = _("OPTION");
+const u8 gText_Option[] = _("{L_BUTTON} OPTIONS");
 const u8 gText_TextSpeed[] = _("TEXT SPEED");
-const u8 gText_BattleScene[] = _("BATTLE SCENE");
+const u8 gText_BattleScene[] = _("BATTLE ANIMS");
 const u8 gText_BattleStyle[] = _("BATTLE STYLE");
 const u8 gText_Sound[] = _("SOUND");
 const u8 gText_Frame[] = _("FRAME");
@@ -1295,3 +1295,71 @@ const u8 gText_PM[] = _("PM");
 const u8 gText_Relearn[] = _("{START_BUTTON} RELEARN"); // future note: don't decap this, because it mimics the summary screen BG graphics which will not get decapped
 const u8 gText_Rename[] = _("RENAME");
 const u8 gText_CannotSendMonToBoxHM[] = _("Cannot send that mon to the box,\nbecause it knows a HM move.{PAUSE_UNTIL_PRESS}");
+
+/////////////////////NEW OPTIONS MENU////////////////////////////////
+
+const u8 gText_SmallDot[] = _("·");
+const u8 gText_LargeDot[] = _("{EMOJI_CIRCLE}");
+const u8 gText_PageNav[]  = _("GENERAL {R_BUTTON}");
+const u8 gText_PageNav3[] = _("BATTLE  {R_BUTTON}");
+const u8 gText_PageNav4[] = _("SOUND   {R_BUTTON}");
+
+//FOLLOWERS
+const u8 gText_Follower[] = _("{PKMN} FOLLOWERS");
+const u8 gText_FollowerOff[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}HIDE");
+const u8 gText_FollowerOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}SHOW");
+//BIG FOLLOWERS
+const u8 gText_Big_Follower[] = _("BIG FOLLOWERS");
+//UNIT SYSTEM
+const u8 gText_UnitSystem[] = _("UNIT SYSTEM");
+const u8 gText_UnitSystemMetric[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}METRIC");
+const u8 gText_UnitSystemImperial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}IMPERIAL");
+//AUTORUN
+const u8 gText_Autorun[] = _("AUTO-RUN");
+//AUTORUN SURF
+const u8 gText_AutorunSurf[] = _("AUTO-RUN (SURF)");
+//AUTORUN DIVE
+const u8 gText_AutorunDive[] = _("AUTO-RUN (DIVE)");
+//MATCH CALLS
+const u8 gText_MatchCalls[] = _("MATCH CALLS");
+//SKIP INTRO
+const u8 gText_SkipIntro[] = _("SKIP GAME INTRO");
+//FAST BATTLES
+const u8 gText_FastBattles[] = _("FAST BATTLES");
+//BALL PROMPT
+const u8 gText_BallPrompt[] = _("L-BUTTON BALL");
+//FAST RUN
+const u8 gText_FastRun[] = _("QUICK RUN AWAY");
+const u8 gText_FastRunLR[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}L+R");
+const u8 gText_FastRunBA[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}{CLEAR 0x06}B->A");
+const u8 gText_FastRunB[]  = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}{CLEAR 0x18}B");
+//FAST RUN PROMPT
+const u8 gText_FastRunPrompt[] = _("Q. RUN AWAY TEXT");
+//FAST HEAL
+const u8 gText_FastHeal[] = _("FAST HEAL");
+//MUSIC
+const u8 gText_Music[] = _("MUSIC");
+//SURF BIKE MUSIC
+const u8 gText_SurfBikeMusic[] = _("SURF/ BIKE MUSIC");
+//WILD MUSIC
+const u8 gText_WildMusic[] = _("WILD {PKMN} MUSIC");
+const u8 gText_MusicHoenn[]  = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}HOENN{CLEAR 0x06}");
+const u8 gText_MusicKanto1[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}KANTO{CLEAR 0x06}");
+const u8 gText_MusicSinnoh[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}SINNOH");
+const u8 gText_MusicJohto[]  = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}JOHTO{CLEAR 0x06}");
+const u8 gText_MusicKanto2[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}KANTO2");
+const u8 gText_MusicRandom[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}RANDOM");
+//TRAINER MUSIC
+const u8 gText_TrainerMusic[] = _("TRAINER MUSIC");
+//TRAINER MUSIC
+const u8 gText_FrontierMusic[] = _("FRONTIER MUSIC");
+//SOUND EFFECTS
+const u8 gText_SoundEffects[] = _("SOUND EFFECTS");
+const u8 gText_SoundEffects_Gen3[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}GEN3");
+const u8 gText_SoundEffects_DPPl[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}DPPl");
+const u8 gText_SoundEffects_HGSS[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}HGSS");
+//DIFFICULTY
+const u8 gText_Difficulty[] = _("DIFFICULTY");
+const u8 gText_DifficultyEasy[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}EASY");
+const u8 gText_DifficultyNormal[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}NORMAL");
+const u8 gText_DifficultyHard[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}HARD");

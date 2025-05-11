@@ -94,12 +94,38 @@ static void InitPlayerTrainerId(void)
 // L=A isnt set here for some reason.
 static void SetDefaultOptions(void)
 {
-    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
-    gSaveBlock2Ptr->optionsWindowFrameType = 0;
-    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
-    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
-    gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
+    //pg1
+    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
+    gSaveBlock2Ptr->optionsFollower = TRUE;
+    gSaveBlock2Ptr->optionsBigFollower = FALSE; 
+    gSaveBlock2Ptr->optionsButtonMode = OPTIONS_BUTTON_MODE_NORMAL;
+    gSaveBlock2Ptr->optionsFastHeal = FALSE;
+    gSaveBlock2Ptr->optionsWindowFrameType = 0;
+    gSaveBlock2Ptr->optionsMatchCalls = TRUE;   
+    /*gTasks[taskId].tFollower == 0 ? FlagClear(FLAG_POKEMON_FOLLOWERS) : FlagSet(FLAG_POKEMON_FOLLOWERS);
+        VarSet(VAR_DIFFICULTY, gTasks[taskId].tDifficulty);*/
+    //pg2
+    gSaveBlock2Ptr->optionsAutorun = FALSE;
+    gSaveBlock2Ptr->optionsAutorunSurf = FALSE;
+    gSaveBlock2Ptr->optionsAutorunDive = FALSE;
+    gSaveBlock2Ptr->optionsUnitSystem = FALSE;
+    gSaveBlock2Ptr->optionsSkipIntro = FALSE;
+    //pg3
+    gSaveBlock2Ptr->optionsFastBattles = FALSE;
+    gSaveBlock2Ptr->optionsBallPrompt = TRUE;
+    gSaveBlock2Ptr->optionsFastRun = 1;
+    gSaveBlock2Ptr->optionsFastRunPrompt = TRUE;
+    gSaveBlock2Ptr->optionsBattleScene = TRUE;
+    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
+    //pg4
+    gSaveBlock2Ptr->optionsMusic = TRUE;
+    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_STEREO;
+    gSaveBlock2Ptr->optionsBikeSurfMusic = TRUE;
+    gSaveBlock2Ptr->optionsWildMusic = 0;
+    gSaveBlock2Ptr->optionsFrontierMusic = 0;
+    gSaveBlock2Ptr->optionsTrainerMusic = 0;
+    gSaveBlock2Ptr->optionsSoundEffects = 0;
 }
 
 static void ClearPokedexFlags(void)

@@ -2421,4 +2421,74 @@ extern const u8 gText_Rename[]; // change nickname from summary screen
 // Switch Caught Mon into Party
 extern const u8 gText_CannotSendMonToBoxHM[];
 
+/////////////////////NEW OPTIONS MENU////////////////////////////////
+
+extern const u8 gText_SmallDot[];
+extern const u8 gText_LargeDot[];
+extern const u8 gText_PageNav[];
+extern const u8 gText_PageNav3[];
+extern const u8 gText_PageNav4[];
+
+//FOLLOWERS
+extern const u8 gText_Follower[];
+extern const u8 gText_FollowerOff[];
+extern const u8 gText_FollowerOn[];
+
+//DIFFICULTY
+extern const u8 gText_Difficulty[];
+extern const u8 gText_DifficultyEasy[];
+extern const u8 gText_DifficultyNormal[];
+extern const u8 gText_DifficultyHard[];
+
+//BIG FOLLOWERS
+extern const u8 gText_Big_Follower[];
+//AUTORUN
+extern const u8 gText_Autorun[];
+//AUTORUN SURF
+extern const u8 gText_AutorunSurf[];
+//AUTORUN DIVE
+extern const u8 gText_AutorunDive[];
+//UNIT SYSTEM
+extern const u8 gText_UnitSystem[];
+extern const u8 gText_UnitSystemMetric[];
+extern const u8 gText_UnitSystemImperial[];
+//MATCH CALLS
+extern const u8 gText_MatchCalls[];
+//SKIP INTRO
+extern const u8 gText_SkipIntro[];
+//FAST BATTLES
+extern const u8 gText_FastBattles[];
+//BALL PROMPT
+extern const u8 gText_BallPrompt[];
+//FAST RUN
+extern const u8 gText_FastRun[];
+extern const u8 gText_FastRunLR[];
+extern const u8 gText_FastRunBA[];
+extern const u8 gText_FastRunB[];
+//FAST RUN PROMPT
+extern const u8 gText_FastRunPrompt[];
+//FAST HEAL
+extern const u8 gText_FastHeal[];
+//MUSIC
+extern const u8 gText_Music[];
+//SURF BIKE MUSIC
+extern const u8 gText_SurfBikeMusic[];
+//WILD MUSIC
+extern const u8 gText_WildMusic[];
+extern const u8 gText_MusicHoenn[];
+extern const u8 gText_MusicKanto1[];
+extern const u8 gText_MusicSinnoh[];
+extern const u8 gText_MusicJohto[];
+extern const u8 gText_MusicKanto2[];
+extern const u8 gText_MusicRandom[];
+//TRAINER MUSIC
+extern const u8 gText_TrainerMusic[];
+//FRONTIER MUSIC
+extern const u8 gText_FrontierMusic[];
+//SOUND EFFECTS
+extern const u8 gText_SoundEffects[];
+extern const u8 gText_SoundEffects_Gen3[];
+extern const u8 gText_SoundEffects_DPPl[];
+extern const u8 gText_SoundEffects_HGSS[];
+
 #endif // GUARD_STRINGS_H
