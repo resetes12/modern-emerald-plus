@@ -19,6 +19,7 @@
 #include "mystery_event_menu.h"
 #include "naming_screen.h"
 #include "option_menu.h"
+#include "challenges_menu.h"
 #include "overworld.h"
 #include "palette.h"
 #include "pokeball.h"
@@ -244,6 +245,10 @@ static void MainMenu_FormatSavegamePokedex(void);
 static void MainMenu_FormatSavegameTime(void);
 static void MainMenu_FormatSavegameBadges(void);
 static void NewGameBirchSpeech_CreateDialogueWindowBorder(u8, u8, u8, u8, u8, u8);
+static void Task_NewGameBirchSpeech_Challenge(u8 taskId);
+static void Task_NewGameBirchSpeech_WaitToShowChallengeMenu(u8 taskId);
+static void Task_NewGameBirchSpeech_ChooseChallenge(u8 taskId);
+static void CB2_NewGameBirchSpeech_ReturnFromTxRandomizerChallengesOptions(void);
 
 // .rodata
 
@@ -1529,13 +1534,13 @@ static void Task_NewGameBirchSpeech_ChooseGender(u8 taskId)
             PlaySE(SE_SELECT);
             gSaveBlock2Ptr->playerGender = gender;
             NewGameBirchSpeech_ClearGenderWindow(1, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
+            gTasks[taskId].func = Task_NewGameBirchSpeech_Challenge;
             break;
         case FEMALE:
             PlaySE(SE_SELECT);
             gSaveBlock2Ptr->playerGender = gender;
             NewGameBirchSpeech_ClearGenderWindow(1, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
+            gTasks[taskId].func = Task_NewGameBirchSpeech_Challenge;
             break;
     }
     gender2 = Menu_GetCursorPos();
@@ -1590,6 +1595,68 @@ static void Task_NewGameBirchSpeech_SlideInNewGenderSprite(u8 taskId)
         }
     }
 }
+//Challenge menu
+static void Task_NewGameBirchSpeech_Challenge(u8 taskId)
+{
+    NewGameBirchSpeech_ClearWindow(0);
+    StringExpandPlaceholders(gStringVar4, gText_Birch_Challenges);
+    AddTextPrinterForMessage(TRUE);
+    gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowChallengeMenu;
+}
+
+static void Task_NewGameBirchSpeech_WaitToShowChallengeMenu(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseChallenge;
+    }
+}
+
+static void Task_NewGameBirchSpeech_ChooseChallenge(u8 taskId)
+{
+    if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+    {
+        gMain.savedCallback = CB2_NewGameBirchSpeech_ReturnFromTxRandomizerChallengesOptions;
+        SetMainCallback2(CB2_InitChallengesMenu);
+        DestroyTask(taskId);
+    }
+}
+
+static void CB2_NewGameBirchSpeech_ReturnFromTxRandomizerChallengesOptions(void)
+{
+    u8 taskId;
+    u8 spriteId;
+    u16 savedIme;
+    ResetBgsAndClearDma3BusyFlags(0);
+    SetGpuReg(REG_OFFSET_DISPCNT, 0);
+    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
+    InitBgsFromTemplates(0, sMainMenuBgTemplates, 2);
+    InitBgFromTemplate(&sBirchBgTemplate);
+    SetVBlankCallback(NULL);
+    SetGpuReg(REG_OFFSET_BG2CNT, 0);
+    SetGpuReg(REG_OFFSET_BG1CNT, 0);
+    SetGpuReg(REG_OFFSET_BG0CNT, 0);
+    SetGpuReg(REG_OFFSET_BG2HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG2VOFS, 0);
+    SetGpuReg(REG_OFFSET_BG1HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG1VOFS, 0);
+    SetGpuReg(REG_OFFSET_BG0HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG0VOFS, 0);
+    DmaFill16(3, 0, VRAM, VRAM_SIZE);
+    DmaFill32(3, 0, OAM, OAM_SIZE);
+    DmaFill16(3, 0, PLTT, PLTT_SIZE);
+    ResetPaletteFade();
+    LZ77UnCompVram(sBirchSpeechShadowGfx, (u8*)VRAM);
+    LZ77UnCompVram(sBirchSpeechBgMap, (u8*)(BG_SCREEN_ADDR(7)));
+    LoadPalette(sBirchSpeechBgPals, 0, 64);
+    LoadPalette(&sBirchSpeechBgGradientPal[1], 1, 16);
+    ResetTasks();
+    taskId = CreateTask(Task_NewGameBirchSpeech_WhatsYourName, 0);
+    gTasks[taskId].tTimer = 5;
+    gTasks[taskId].tBG1HOFS = -60;
+    SetVBlankCallback(VBlankCB_MainMenu);
+    SetMainCallback2(CB2_MainMenu);
+}
 
 static void Task_NewGameBirchSpeech_WhatsYourName(u8 taskId)
 {
@@ -1607,11 +1674,8 @@ static void Task_NewGameBirchSpeech_WaitForWhatsYourNameToPrint(u8 taskId)
 
 static void Task_NewGameBirchSpeech_WaitPressBeforeNameChoice(u8 taskId)
 {
-    if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
-    {
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_NewGameBirchSpeech_StartNamingScreen;
-    }
 }
 
 static void Task_NewGameBirchSpeech_StartNamingScreen(u8 taskId)
